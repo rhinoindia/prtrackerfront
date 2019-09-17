@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../components/Header';
-import PrListContainer from '../components/PrListContainer'
+import PrListContainer from '../components/PrListContainer';
 
 class MainComponent extends Component {
     state={};

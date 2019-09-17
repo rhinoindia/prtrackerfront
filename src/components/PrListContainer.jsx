@@ -5,9 +5,7 @@ class PrListContainer extends Component {
 
     render() {
       return (
-        <div>
-            
-        </div>
+        <div />
       );
     }
 }

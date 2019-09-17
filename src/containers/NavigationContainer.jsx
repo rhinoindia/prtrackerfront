@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 
 class NavigationContainer extends Component {
-    state={};
+  state = {};
 
-    render() {
-      return (
-        <div>
-          <span className="navigation-container-header">PR Tracker</span>
-        </div>
-      );
-    }
+  render() {
+    return (
+      <div>
+        <span className="navigation-container-header">PR Tracker</span>
+      </div>
+    );
+  }
 }
 
 export default NavigationContainer;
