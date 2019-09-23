@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import NavigationContainer from './containers/NavigationContainer';
-import MainComponent from './containers/MainComponent';
+import MainContainer from './containers/MainContainer';
 import './styles/reset.css';
 import './styles/style.css';
 
@@ -12,7 +12,7 @@ function App() {
         <NavigationContainer />
       </div>
       <div className="main-container">
-        <MainComponent />
+        <MainContainer />
       </div>
     </div>
   );

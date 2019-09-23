@@ -17,10 +17,31 @@ body {
 .main-container {
   height: 100vh;
   width: 80%;
-  background-color: #cc8f33; }
+  background-color: #ebecec; }
 
 .header-container {
   background: red;
   padding: 30px; }
+
+.pr-list-table {
+  border-collapse: collapse;
+  width: 90%;
+  text-align: center;
+  margin: 20px; }
+  .pr-list-table tr:nth-child(even) {
+    background-color: #f2f2f2; }
+  .pr-list-table tr:hover {
+    background-color: #ddd; }
+  .pr-list-table td {
+    border: 1px solid #ddd;
+    padding: 8px; }
+  .pr-list-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #142553;
+    color: white; }
 
 /*# sourceMappingURL=style.css.map */
