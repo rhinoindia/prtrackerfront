@@ -6,7 +6,7 @@ class NavigationContainer extends Component {
   render() {
     return (
       <div>
-        <span className="navigation-container-header">PR Tracker</span>
+        <div className="navigation-container-header">PR Tracker</div>
       </div>
     );
   }

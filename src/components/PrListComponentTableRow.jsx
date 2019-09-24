@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as moment from 'moment';
@@ -8,7 +9,9 @@ class PrListComponentTableRow extends Component {
     render() {
       const {
         prId,
+        prLink,
         jiraId,
+        jiraLink,
         raisedBy,
         component,
         prOpenDate,
@@ -18,13 +21,13 @@ class PrListComponentTableRow extends Component {
       } = this.props;
       return (
         <tr>
-          <td>{prId}</td>
-          <td>{jiraId}</td>
+          <td><a href={prLink} target="_blank" data-toggle="tooltip" data-placement="bottom" title={prLink}>{prId}</a></td>
+          <td><a href={jiraLink} target="_blank" data-toggle="tooltip" data-placement="bottom" title={jiraLink}>{jiraId}</a></td>
           <td>{raisedBy}</td>
           <td>{component}</td>
-          <td>{moment(prOpenDate).format('MMM Do YYYY') }</td>
-          <td>{prCloseDate === null ? 'pr not closed' : prCloseDate}</td>
-          <td>{turnAroundTime}</td>
+          <td>{moment(prOpenDate).format('MMM DD YYYY') }</td>
+          <td>{prCloseDate === null ? '--' : moment(prCloseDate).format('MMM DD YYYY')}</td>
+          <td>{turnAroundTime === 'N/A' ? '--' : turnAroundTime}</td>
           <td>{comments.length}</td>
         </tr>
       );
@@ -33,7 +36,9 @@ class PrListComponentTableRow extends Component {
 
 PrListComponentTableRow.propTypes = {
   prId: PropTypes.number.isRequired,
+  prLink: PropTypes.string.isRequired,
   jiraId: PropTypes.number.isRequired,
+  jiraLink: PropTypes.string.isRequired,
   raisedBy: PropTypes.string.isRequired,
   component: PropTypes.string.isRequired,
   prOpenDate: PropTypes.instanceOf(Date).isRequired,

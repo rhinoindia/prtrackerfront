@@ -1,24 +1,27 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { fetchPrList } from '../actions/prListAction';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 import PrListComponentTableRow from './PrListComponentTableRow';
+import noDataImg from '../assets/searching.png';
 
 class PrListComponentTable extends Component {
-    state={};
+  state={};
 
-
-    componentDidMount() {
-      const { fetchPrListAction } = this.props;
-      fetchPrListAction();
-    }
-
-    render() {
-      const { list } = this.props;
-      // eslint-disable-next-line no-console
-      console.log(list);
-      return (
-        <div>
+  render() {
+    const { list } = this.props;
+    // eslint-disable-next-line no-console
+    console.log(list);
+    return (
+      list.length === 0
+        ? (
+          <div className="no-data-container">
+            <div className="no-data-img">
+              <img src={noDataImg} alt="img" height="200px" />
+              <div className="no-data-text">Looks like there is no PR.</div>
+            </div>
+          </div>
+        )
+        : (
           <table className="pr-list-table">
             <thead>
               <tr>
@@ -34,42 +37,30 @@ class PrListComponentTable extends Component {
             </thead>
             <tbody>
               {
-                list.map((listItem) => (
-                  <PrListComponentTableRow
-                    prId={listItem.prId}
-                    jiraId={listItem.jiraId}
-                    raisedBy={listItem.raisedBy}
-                    component={listItem.component}
-                    prOpenDate={listItem.openDate}
-                    prCloseDate={listItem.closeDate}
-                    turnAroundTime={listItem.trt}
-                    comments={listItem.comments}
-                  />
-                ))
-              }
+                  list.map((listItem) => (
+                    <PrListComponentTableRow
+                      prId={listItem.prId}
+                      prLink={listItem.prLink}
+                      jiraId={listItem.jiraId}
+                      jiraLink={listItem.jiraLink}
+                      raisedBy={listItem.raisedBy}
+                      component={listItem.component}
+                      prOpenDate={listItem.openDate}
+                      prCloseDate={listItem.closeDate}
+                      turnAroundTime={listItem.trt}
+                      comments={listItem.comments}
+                    />
+                  ))
+                }
             </tbody>
           </table>
-        </div>
-      );
-    }
+        )
+    );
+  }
 }
 
 PrListComponentTable.propTypes = {
   list: PropTypes.arrayOf.isRequired,
-  fetchPrListAction: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => {
-  const { prTrackerReducer } = state;
-  // eslint-disable-next-line no-console
-  console.log(state);
-  return {
-    list: prTrackerReducer.list,
-  };
-};
-
-const actions = {
-  fetchPrListAction: fetchPrList,
-};
-
-export default connect(mapStateToProps, actions)(PrListComponentTable) ;
+export default PrListComponentTable;

@@ -10,7 +10,7 @@ const initState = {
 const prTrackerReducer = handleActions({
   [GET_PR_LIST]: (state, action) => ({
     ...state,
-    list: [...state.list, ...action.payload],
+    list: [...action.payload],
 
   }),
 }, {

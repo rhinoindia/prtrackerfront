@@ -1,0 +1,30 @@
+.filter-sec {
+    padding: 20px;
+    background-color: $primary-background-color;
+    box-shadow: 0px 20px 14px -19px rgba(0,0,0,0.64);
+    font-family: $primary-font;
+    font-weight: 700;
+
+    .filters{
+        padding: 5px;
+        display: inline-block;
+
+        span {
+            font-size: 18px;
+        }
+
+        .dropdown {
+            background-color: white;
+            height: 30px;
+            border-radius: 5px;
+            outline: none;
+            border-color: $primary-color;
+    
+            .dropdown-option {
+                text-align: center;
+            }
+        }
+    }
+
+    
+}

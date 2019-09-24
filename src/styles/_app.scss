@@ -6,22 +6,19 @@
 .navigation-container {
     height: 100vh;
     width: 20%;
-    background: #1a1a1d;
+    background: $primary-color;
 
     .navigation-container-header {
         font-family: 'Cinzel', serif;
         color: #fff;
         font-size: 30px;
+        text-align: center;
+        padding: 20px;
     }
 }
 
 .main-container {
     height: 100vh;
     width: 80%;
-    background-color: rgb(235, 236, 236);
-}
-
-.header-container {
-    background: red;
-    padding: 30px;
+    background-color: $primary-background-color;
 }

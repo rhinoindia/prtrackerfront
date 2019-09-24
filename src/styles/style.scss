@@ -1,7 +1,14 @@
-body{
-    box-sizing: border-box;
-    margin: 0;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@import "app";
-@import "prListTable"
+//Varibales
+@import 'appVariable';
+
+
+//Component SCSS
+@import 'app';
+@import 'filter';
+@import 'prListTable';

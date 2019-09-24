@@ -1,6 +1,7 @@
-body {
-  box-sizing: border-box;
-  margin: 0; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
 
 .root-app-wrapper {
   display: flex; }
@@ -8,26 +9,66 @@ body {
 .navigation-container {
   height: 100vh;
   width: 20%;
-  background: #1a1a1d; }
+  background: #25705A; }
   .navigation-container .navigation-container-header {
     font-family: 'Cinzel', serif;
     color: #fff;
-    font-size: 30px; }
+    font-size: 30px;
+    text-align: center;
+    padding: 20px; }
 
 .main-container {
   height: 100vh;
   width: 80%;
-  background-color: #ebecec; }
+  background-color: #e8f0f0; }
 
-.header-container {
-  background: red;
-  padding: 30px; }
+.filter-sec {
+  padding: 20px;
+  background-color: #e8f0f0;
+  box-shadow: 0px 20px 14px -19px rgba(0, 0, 0, 0.64);
+  font-family: "Raleway", sans-serif;
+  font-weight: 700; }
+  .filter-sec .filters {
+    padding: 5px;
+    display: inline-block; }
+    .filter-sec .filters span {
+      font-size: 18px; }
+    .filter-sec .filters .dropdown {
+      background-color: white;
+      height: 30px;
+      border-radius: 5px;
+      outline: none;
+      border-color: #25705A; }
+      .filter-sec .filters .dropdown .dropdown-option {
+        text-align: center; }
+
+.no-data-container {
+  width: 400px;
+  height: 500px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; }
+  .no-data-container .no-data-text {
+    font-family: primary-font;
+    font-weight: 700;
+    font-size: 30px;
+    padding: 20px;
+    color: #25705A; }
 
 .pr-list-table {
   border-collapse: collapse;
   width: 90%;
   text-align: center;
-  margin: 20px; }
+  margin: 20px;
+  margin-top: 60px;
+  font-family: "Raleway", sans-serif;
+  display: block;
+  overflow-y: scroll;
+  height: 500px;
+  table-layout: fixed;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75); }
   .pr-list-table tr:nth-child(even) {
     background-color: #f2f2f2; }
   .pr-list-table tr:hover {
@@ -41,7 +82,7 @@ body {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #142553;
+    background-color: #25705A;
     color: white; }
 
 /*# sourceMappingURL=style.css.map */
