@@ -23,5 +23,6 @@ module.exports = {
   ],
   rules: {
     "react/state-in-constructor": 0,
+    "react/require-default-props": 0,
   },
 };

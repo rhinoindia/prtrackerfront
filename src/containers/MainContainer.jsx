@@ -1,36 +1,36 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import PerfectScrollbar from 'react-perfect-scrollbar';
-import PrListComponentTable from '../components/PrListComponentTable';
 import Filter from '../components/Filter';
 import { fetchPrList } from '../actions/prListAction';
+import PrListComponentTable from '../components/PrListComponentTable';
 
 class MainContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // eslint-disable-next-line react/no-unused-state
       component: 'all',
-      // eslint-disable-next-line react/no-unused-state
       status: 'open',
     };
   }
 
   componentDidMount() {
     const { fetchPrListAction } = this.props;
-    fetchPrListAction(this.state.status, this.state.component);
+    const { status, component } = this.state;
+    fetchPrListAction(status, component);
   }
 
   onHandleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
     }, () => {
-      this.props.fetchPrListAction(this.state.status, this.state.component)
+      // eslint-disable-next-line react/destructuring-assignment
+      this.props.fetchPrListAction(this.state.status, this.state.component);
     });
   }
 
   render() {
+    // eslint-disable-next-line no-console
     console.log(this.state);
     const { fetchPrListAction, list } = this.props;
     return (
@@ -41,7 +41,6 @@ class MainContainer extends Component {
         />
         <PrListComponentTable
           list={list}
-          fetchPrListAction={fetchPrListAction}
         />
       </div>
     );

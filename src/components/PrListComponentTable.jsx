@@ -1,38 +1,35 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import PerfectScrollbar from 'react-perfect-scrollbar';
 import PrListComponentTableRow from './PrListComponentTableRow';
 import noDataImg from '../assets/searching.png';
 
-class PrListComponentTable extends Component {
-  state={};
 
-  render() {
-    const { list } = this.props;
-    // eslint-disable-next-line no-console
-    console.log(list);
-    return (
-      list.length === 0
-        ? (
-          <div className="no-data-container">
-            <div className="no-data-img">
-              <img src={noDataImg} alt="img" height="200px" />
-              <div className="no-data-text">Looks like there is no PR.</div>
-            </div>
+const PrListComponentTable = (props) => {
+  const { list } = props;
+  return (
+    list.length === 0
+      ? (
+        <div className="no-data-container">
+          <div className="no-data-img">
+            <img src={noDataImg} alt="img" height="200px" />
+            <div className="no-data-text">Looks like there is no PR.</div>
           </div>
-        )
-        : (
-          <table className="pr-list-table">
+        </div>
+      )
+      : (
+        <div className="table-responsive-xl tableFixHead">
+          <table className="table table-bordered table-striped bt-table">
             <thead>
               <tr>
-                <th>PR Id</th>
-                <th>Jira Id</th>
-                <th>Raised By</th>
-                <th>Component</th>
-                <th>PR Open Date</th>
-                <th>PR Close Date</th>
-                <th>Turn Around Time</th>
-                <th>Comments</th>
+                <th scope="col">PR Id</th>
+                <th scope="col">Jira Id</th>
+                <th scope="col">Raised By</th>
+                <th scope="col">Component</th>
+                <th scope="col">PR Open Date</th>
+                <th scope="col">PR Close Date</th>
+                <th scope="col">Turn Around Time</th>
+                <th scope="col">Reviewers</th>
+                <th scope="col">Comments</th>
               </tr>
             </thead>
             <tbody>
@@ -48,16 +45,17 @@ class PrListComponentTable extends Component {
                       prOpenDate={listItem.openDate}
                       prCloseDate={listItem.closeDate}
                       turnAroundTime={listItem.trt}
+                      reviewers={listItem.reviewers}
                       comments={listItem.comments}
                     />
                   ))
-                }
+                  }
             </tbody>
           </table>
-        )
-    );
-  }
-}
+        </div>
+      )
+  );
+};
 
 PrListComponentTable.propTypes = {
   list: PropTypes.arrayOf.isRequired,
